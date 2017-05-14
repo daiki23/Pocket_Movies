@@ -18,7 +18,7 @@ import id.sch.smktelkom_mlg.privateassignment.xirpl419.pocket_movies.model.Sourc
 
 
 /**
- * Created by hyuam on 12/10/2016.
+ * Created by Daiki23 on 12/10/2016.
  */
 
 public class SourceAdapter extends RecyclerView.Adapter<SourceAdapter.ViewHolder> {

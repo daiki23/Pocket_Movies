@@ -2,7 +2,6 @@ package id.sch.smktelkom_mlg.privateassignment.xirpl419.pocket_movies.Fragment;
 
 
 import android.os.Bundle;
-import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -37,10 +36,6 @@ public class NowFragment extends Fragment {
         // Required empty public constructor
     }
 
-    public static NowFragment newInstance() {
-        NowFragment fragment = new NowFragment();
-        return fragment;
-    }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -50,20 +45,20 @@ public class NowFragment extends Fragment {
     }
 
     @Override
-    public void onActivityCreated(@Nullable Bundle savedInstanceState) {
+    public void onActivityCreated(Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
+
 
         RecyclerView recyclerView = (RecyclerView) getView().findViewById(R.id.now);
         recyclerView.setLayoutManager(new LinearLayoutManager(this.getActivity()));
         mAdapter = new SourceAdapter(this.getActivity(), mList);
         recyclerView.setAdapter(mAdapter);
 
-        downloadDataSource();
+        downloadDataSources();
     }
 
-    private void downloadDataSource() {
-        //String url = "https://newsapi.org/v1/sources?language=en";
-        String url = "https://api.themoviedb.org/3/movie/now_playing?api_key=b3d33e31e5a779cf4a466dd025e8ccf6";
+    private void downloadDataSources() {
+        String url = "https://api.themoviedb.org/3/movie/now_playing?api_key=b3d33e31e5a779cf4a466dd025e8ccf6&language=en-US&page=1";
 
         GsonGetRequest<SourcesResponse> myRequest = new GsonGetRequest<SourcesResponse>
                 (url, SourcesResponse.class, null, new Response.Listener<SourcesResponse>() {
@@ -71,11 +66,10 @@ public class NowFragment extends Fragment {
                     @Override
                     public void onResponse(SourcesResponse response) {
                         Log.d("FLOW", "onResponse: " + (new Gson().toJson(response)));
-                        if (response.page.equals("1")) {
-                            //fillColor(response.results);
-                            mList.addAll(response.results);
-                            mAdapter.notifyDataSetChanged();
-                        }
+
+                        mList.addAll(response.results);
+                        mAdapter.notifyDataSetChanged();
+
                     }
 
                 }, new Response.ErrorListener() {
@@ -86,6 +80,6 @@ public class NowFragment extends Fragment {
                     }
                 });
         VolleySingleton.getInstance(this.getActivity()).addToRequestQueue(myRequest);
-
     }
+
 }

@@ -27,12 +27,11 @@ import id.sch.smktelkom_mlg.privateassignment.xirpl419.pocket_movies.service.Vol
 /**
  * A simple {@link Fragment} subclass.
  */
-public class HomeFragment extends Fragment {
+public class TopFragment extends Fragment {
+
     ArrayList<Source> mList = new ArrayList<>();
     SourceAdapter mAdapter;
-
-
-    public HomeFragment() {
+    public TopFragment() {
         // Required empty public constructor
     }
 
@@ -41,28 +40,28 @@ public class HomeFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_home, container, false);
+        return inflater.inflate(R.layout.fragment_top, container, false);
     }
 
     @Override
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
-                super.onActivityCreated(savedInstanceState);
 
-        RecyclerView recyclerView = (RecyclerView) getView().findViewById(R.id.home);
+        super.onActivityCreated(savedInstanceState);
+        RecyclerView recyclerView = (RecyclerView) getView().findViewById(R.id.top);
         recyclerView.setLayoutManager(new LinearLayoutManager(this.getActivity()));
         mAdapter = new SourceAdapter(this.getActivity(), mList);
         recyclerView.setAdapter(mAdapter);
 
         downloadDataSource();
 
-
     }
 
     private void downloadDataSource() {
 
 
+
         //String url = "https://newsapi.org/v1/sources?language=en";
-        String url = "https://api.themoviedb.org/3/movie/popular?api_key=b3d33e31e5a779cf4a466dd025e8ccf6";
+        String url = "https://api.themoviedb.org/3/movie/top_rated?api_key=b3d33e31e5a779cf4a466dd025e8ccf6";
 
         GsonGetRequest<SourcesResponse> myRequest = new GsonGetRequest<SourcesResponse>
                 (url, SourcesResponse.class, null, new Response.Listener<SourcesResponse>() {

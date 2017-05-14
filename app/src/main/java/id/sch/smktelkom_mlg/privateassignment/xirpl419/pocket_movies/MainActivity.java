@@ -14,6 +14,7 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 
+import id.sch.smktelkom_mlg.privateassignment.xirpl419.pocket_movies.Fragment.UpComingFragment;
 import id.sch.smktelkom_mlg.privateassignment.xirpl419.pocket_movies.adapter.SourceAdapter;
 import id.sch.smktelkom_mlg.privateassignment.xirpl419.pocket_movies.Fragment.AboutFragment;
 import id.sch.smktelkom_mlg.privateassignment.xirpl419.pocket_movies.Fragment.HomeFragment;
@@ -107,7 +108,11 @@ public class MainActivity extends AppCompatActivity
             fragment = new NowFragment();
             setTitle("Now Playing");
 
-        } else if (id == R.id.nav_about) {
+        } else if (id == R.id.nav_up) {
+            fragment = new UpComingFragment();
+            setTitle("Upcoming Movie!");
+
+        }else if (id == R.id.nav_about) {
             fragment = new AboutFragment();
             setTitle("About Author!");
 

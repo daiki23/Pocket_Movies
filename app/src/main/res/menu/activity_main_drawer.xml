@@ -11,6 +11,11 @@
             android:icon="@drawable/ic_fast_forward_black_24dp"
             android:title="Now Playing" />
 
+        <item
+            android:id="@+id/nav_up"
+            android:icon="@drawable/ic_call_missed_outgoing_black_24dp"
+            android:title="UP Coming Movie" />
+
     </group>
 
     <item android:title="Author">

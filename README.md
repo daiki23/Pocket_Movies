@@ -3,7 +3,7 @@
 ## Nama Aplikasi : 
 #### Pocket_Movies
 ## Link File APK : 
-#### http://www.mediafire.com/file/6446l78arnuabum/Pocket_Movies.apk
+#### https://www.mediafire.com/?ul53gr703k446og
 ## Identitas Siswa :
 #### Nama lengkap : M. Rahadyan Dika Adji
 #### Kelas / No urut : XI RPL 4 / 19
